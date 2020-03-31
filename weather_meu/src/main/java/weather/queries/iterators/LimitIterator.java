@@ -3,11 +3,11 @@ package weather.queries.iterators;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.function.Consumer;
 
-public class LimitIterator<T> implements Iterator<T> {
+public class LimitIterator<T> extends BaseIterator<T> {
     private final Iterator<T> srcIter;
     private int limit;
-    private Optional<T> next = Optional.empty();
 
     public LimitIterator(Iterable<T> src, int n) {
         this.srcIter = src.iterator();
@@ -15,23 +15,12 @@ public class LimitIterator<T> implements Iterator<T> {
     }
 
     @Override
-    public boolean hasNext() {
-        if (next.isPresent())
-            return true;
+    protected boolean tryAdvance(Consumer<T> consumer) {
         if (limit > 0 && srcIter.hasNext()) {
-            next = Optional.of(srcIter.next());
+            consumer.accept(srcIter.next());
             --limit;
             return true;
         }
         return false;
-    }
-
-    @Override
-    public T next() {
-        if (!hasNext())
-            throw new NoSuchElementException();
-        T aux = next.get();
-        next = Optional.empty();
-        return aux;
     }
 }

@@ -3,11 +3,11 @@ package weather.queries.iterators;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.function.Consumer;
 
-public class SkipIterator<T> implements Iterator<T> {
+public class SkipIterator<T> extends BaseIterator<T> {
     private final Iterator<T> srcIter;
     private int nrToSkip;
-    private Optional<T> next = Optional.empty();
 
     public SkipIterator(Iterable<T> src, int n) {
         this.srcIter = src.iterator();
@@ -15,27 +15,18 @@ public class SkipIterator<T> implements Iterator<T> {
     }
 
     @Override
-    public boolean hasNext() {
-        if (next.isPresent())
-            return true;
+    protected boolean tryAdvance(Consumer<T> consumer) {
         /* on the first call to hasNext skip the first nrToSkip elements of the collection */
         while (nrToSkip > 0 && srcIter.hasNext()) {
             srcIter.next();
             --nrToSkip;
         }
         if (srcIter.hasNext()) {
-            next = Optional.of(srcIter.next());
+            consumer.accept(srcIter.next());
             return true;
         }
         return false;
     }
 
-    @Override
-    public T next() {
-        if (!hasNext())
-            throw new NoSuchElementException();
-        final T aux = next.get();
-        next = Optional.empty();
-        return aux;
-    }
+
 }
