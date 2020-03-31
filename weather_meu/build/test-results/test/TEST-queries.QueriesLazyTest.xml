@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="queries.QueriesLazyTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-03-31T19:45:07" hostname="LAPTOP-LFE4BD4S" time="0.012">
+  <properties/>
+  <testcase name="predicateAndMapAndLimitIteratorsTest" classname="queries.QueriesLazyTest" time="0.012"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

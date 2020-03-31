@@ -6,7 +6,7 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 public abstract class BaseIterator<T> implements Iterator<T> {
-    private Optional<T> next;
+    private Optional<T> next = Optional.empty();
 
     @Override
     public boolean hasNext() {

@@ -6,6 +6,7 @@ import weather.queries.iterators.MapIterator;
 import weather.queries.iterators.SkipIterator;
 
 import java.util.function.Function;
+import java.util.function.IntFunction;
 import java.util.function.Predicate;
 
 public class QueriesLazy {
@@ -24,5 +25,23 @@ public class QueriesLazy {
 
     public static <T> Iterable<T> limit(Iterable<T> src, int n) {
         return () -> new LimitIterator<>(src, n);
+    }
+
+    public static <T> int count(Iterable<T> src) {
+        int counter = 0;
+        for (T elem : src) {
+            ++counter;
+        }
+        return counter;
+    }
+
+    public static <T> T[] toArray(Iterable<T> src, IntFunction<T[]> arrayFactory) {
+        T[] destArray = arrayFactory.apply(count(src));
+        int idx = 0;
+        for (T elem: src) {
+            destArray[idx++] = elem;
+        }
+        return destArray;
+
     }
 }
