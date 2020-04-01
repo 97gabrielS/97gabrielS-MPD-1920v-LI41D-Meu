@@ -14,51 +14,48 @@ public class QueriesLazyTest {
 
     @Test
     public void predicateIteratorTest() {
-        Iterable<String> filteredIterable = filter(strings, s -> s.length() > 4);
-        assertNotNull(filteredIterable);
-        String[] filteredArray = toArray(filteredIterable, size -> new String[size]);
-        assertArrayEquals(new String[]{"Sport", "Lisboa", "Benfica"}, filteredArray);
+        String[] filteredStrings = QueriesLazy.from(strings)
+                .filter(s -> s.length() > 4)
+                .toArray(size -> new String[size]);
+
+        assertArrayEquals(new String[]{"Sport", "Lisboa", "Benfica"}, filteredStrings);
     }
 
     @Test
     public void mapIteratorTest() {
-        Iterable<Integer> mappedIterable = map(strings, s -> s.length());
-        assertNotNull(mappedIterable);
-        Integer[] mappedArray = toArray(mappedIterable, size -> new Integer[size]);
-        assertArrayEquals(new Integer[]{5, 6, 1, 7}, mappedArray);
+        Integer[] mappedStrings = QueriesLazy.from(strings)
+                .map(s -> s.length())
+                .toArray(size -> new Integer[size]);
+
+        assertArrayEquals(new Integer[]{5, 6, 1, 7}, mappedStrings);
     }
 
     @Test
     public void limitIteratorTest() {
-        Iterable<String> limitedIterable = limit(strings, 2);
-        assertNotNull(limitedIterable);
-        String[] limitedArray = toArray(limitedIterable, size -> new String[size]);
-        assertArrayEquals(new String[]{"Sport", "Lisboa"}, limitedArray);
+        String[] limitedStrings = QueriesLazy.from(strings)
+                .limit(2)
+                .toArray(size -> new String[size]);
+
+        assertArrayEquals(new String[]{"Sport", "Lisboa"}, limitedStrings);
     }
 
     @Test
     public void skipIteratorTest() {
-        Iterable<String> skippedIterable = skip(strings, 3);
-        assertNotNull(skippedIterable);
-        String[] skippedArray = toArray(skippedIterable, size -> new String[size]);
-        assertArrayEquals(new String[]{"Benfica"}, skippedArray);
+        String[] skippedStrings = QueriesLazy.from(strings)
+                .skip(3)
+                .toArray(size -> new String[size]);
+
+        assertArrayEquals(new String[]{"Benfica"}, skippedStrings);
     }
 
     @Test
     public void predicateAndMapAndLimitIteratorsTest() {
-        /* test tooo much complicated; QueriesLay class must be changed to make composite operations calls cleaner */
+        Integer[] compositeResult = QueriesLazy.from(strings)
+                .filter(s -> s.contains("a"))
+                .map(s -> s.length())
+                .limit(1)
+                .toArray(size -> new Integer[size]);
 
-        Iterable<String> filteredIterable = filter(strings, s -> s.contains("a"));
-        assertNotNull(filteredIterable);
-        Iterable<Integer> mappedIterable = map(filteredIterable, s -> s.length());
-        assertNotNull(mappedIterable);
-        Iterable<Integer> limitedIterable = limit(mappedIterable, 1);
-        assertNotNull(limitedIterable);
-        Integer[] limitedArray = toArray(limitedIterable, size -> new Integer[size]);
-        assertArrayEquals(new Integer[]{6}, limitedArray);
-
-        // ou....
-        assertArrayEquals(new Integer[]{6}, toArray(limit(map(filter(strings, s -> s.contains("a")), s -> s.length()), 1), size -> new Integer[size]));
-
+        assertArrayEquals(new Integer[]{6}, compositeResult);
     }
 }

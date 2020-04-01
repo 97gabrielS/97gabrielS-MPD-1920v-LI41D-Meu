@@ -9,34 +9,43 @@ import java.util.function.Function;
 import java.util.function.IntFunction;
 import java.util.function.Predicate;
 
-public class QueriesLazy {
+public class QueriesLazy<T> {
+    private Iterable<T> src;
 
-    public static <T, R> Iterable<R> map(Iterable<T> src, Function<T, R> func) {
-        return () -> new MapIterator<>(src, func);
+    private QueriesLazy(Iterable<T> src) {
+        this.src = src;
     }
 
-    public static <T> Iterable<T> filter(Iterable<T> src, Predicate<T> pred) {
-        return () -> new FilterIterator<>(src, pred);
+    public static <T> QueriesLazy<T> from(Iterable<T> src) {
+        return new QueriesLazy<>(src);
     }
 
-    public static <T> Iterable<T> skip(Iterable<T> src, int n) {
-        return () -> new SkipIterator<>(src, n);
+    public <R> QueriesLazy<R> map(Function<T, R> func) {
+        return new QueriesLazy<>(() -> new MapIterator<>(src, func));
     }
 
-    public static <T> Iterable<T> limit(Iterable<T> src, int n) {
-        return () -> new LimitIterator<>(src, n);
+    public QueriesLazy<T> filter(Predicate<T> pred) {
+        return new QueriesLazy<>(() -> new FilterIterator<>(src, pred));
     }
 
-    public static <T> int count(Iterable<T> src) {
+    public QueriesLazy<T> skip(int n) {
+        return new QueriesLazy<>(() -> new SkipIterator<>(src, n));
+    }
+
+    public QueriesLazy<T> limit(int n) {
+        return new QueriesLazy<>(() -> new LimitIterator<>(src, n));
+    }
+
+    public int count() {
         int counter = 0;
-        for (T elem : src) {
+        for (T ignored : src) {
             ++counter;
         }
         return counter;
     }
 
-    public static <T> T[] toArray(Iterable<T> src, IntFunction<T[]> arrayFactory) {
-        T[] destArray = arrayFactory.apply(count(src));
+    public T[] toArray(IntFunction<T[]> arrayFactory) {
+        T[] destArray = arrayFactory.apply(count());
         int idx = 0;
         for (T elem: src) {
             destArray[idx++] = elem;

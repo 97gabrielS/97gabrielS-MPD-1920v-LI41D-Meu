@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="868413f3-5d6b-4cb1-a319-f0a4685b2684" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/gabri.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/gabri.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/weather/queries/QueriesLazy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weather/queries/QueriesLazy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weather/queries/iterators/BaseIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weather/queries/iterators/BaseIterator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/queries/QueriesLazyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/queries/QueriesLazyTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +15,16 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -43,7 +52,7 @@
       <recent name="weather.queries.iterators" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.QueriesLazyTest.predicateAndMapAndLimitIteratorsTest">
+  <component name="RunManager" selected="Gradle.QueriesLazyTest">
     <configuration name="QueriesLazyTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -84,12 +93,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="QueriesLazyTest.mapIteratorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="QueriesLazyTest.predicateAndMapAndLimitIteratorsTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;queries.QueriesLazyTest.mapIteratorTest&quot;" />
+        <option name="scriptParameters" value="--tests &quot;queries.QueriesLazyTest.predicateAndMapAndLimitIteratorsTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -104,12 +113,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="QueriesLazyTest.predicateAndMapAndLimitIteratorsTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="QueriesLazyTest.predicateIteratorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;queries.QueriesLazyTest.predicateAndMapAndLimitIteratorsTest&quot;" />
+        <option name="scriptParameters" value="--tests &quot;queries.QueriesLazyTest.predicateIteratorTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -146,11 +155,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.QueriesLazyTest" />
+        <item itemvalue="Gradle.QueriesLazyTest.predicateIteratorTest" />
         <item itemvalue="Gradle.QueriesLazyTest.predicateAndMapAndLimitIteratorsTest" />
         <item itemvalue="Gradle.QueriesLazyTest.skipIteratorTest" />
         <item itemvalue="Gradle.QueriesLazyTest.limitIteratorTest" />
-        <item itemvalue="Gradle.QueriesLazyTest.mapIteratorTest" />
-        <item itemvalue="Gradle.QueriesLazyTest" />
       </list>
     </recent_temporary>
   </component>
@@ -180,22 +189,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="490" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1585352832795" />
-    <state width="1493" height="278" key="GridCell.Tab.0.bottom" timestamp="1585683904664">
+    <state width="1493" height="153" key="GridCell.Tab.0.bottom" timestamp="1585699948424">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="278" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585683904664" />
-    <state width="1493" height="278" key="GridCell.Tab.0.center" timestamp="1585683904664">
+    <state width="1493" height="153" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585699948424" />
+    <state width="1493" height="153" key="GridCell.Tab.0.center" timestamp="1585699948424">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="278" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585683904664" />
-    <state width="1493" height="278" key="GridCell.Tab.0.left" timestamp="1585683904660">
+    <state width="1493" height="153" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585699948424" />
+    <state width="1493" height="153" key="GridCell.Tab.0.left" timestamp="1585699948424">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="278" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585683904660" />
-    <state width="1493" height="278" key="GridCell.Tab.0.right" timestamp="1585683904664">
+    <state width="1493" height="153" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585699948424" />
+    <state width="1493" height="153" key="GridCell.Tab.0.right" timestamp="1585699948424">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="278" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585683904664" />
+    <state width="1493" height="153" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585699948424" />
     <state width="602" height="307" key="javadoc.popup" timestamp="1585192780330">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
